@@ -20,9 +20,10 @@ fs.appendFile('server.log', log + '\n' ,(error)=> {
 });
 
 
-app.use((req,res,next) => {
-	res.render('maintenence.hbs');
-});
+// app.use((req,res,next) => {
+// 	res.render('maintenence.hbs');
+// 	next();
+// });
 
 hbs.registerHelper('getCurrentYear', ()=> {
 	return new Date().getFullYear()
@@ -60,4 +61,6 @@ app.get(('/bad'), (req, res) => {
 	res.send('unable to fulfill the request, sorry fuck off');
 });
 
-app.listen(port);
+app.listen(3000, ()=>{
+	console.log(`server is up on ${port}`);
+});
